@@ -1,5 +1,5 @@
 <!-- How many users are there?
-SELECT COUNT(*) FROM users
+SELECT COUNT(*) FROM users;
 
 What are the 5 most expensive items?
 SELECT price FROM items ORDER BY price DESC LIMIT 5;
@@ -9,10 +9,13 @@ What's the cheapest book? (Does that change for "category is exactly 'book'"
 SELECT title, category, price FROM ITEMS ORDER BY price LIMIT 1;
 
 Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
- SELECT * FROM addresses WHERE zip LIKE '150__';
+ SELECT first_name FROM addresses
+ WHERE city = Willmouth
+ AND
+ state = WY;
 
 Correct Virginie Mitchell's address to "New York, NY, 10108".
-SELECT id FROM addresses first_name = 'Virginie'
+SELECT id FROM addresses WHERE first_name = 'Virginie'
 39
 
 SELECT * FROM addresses WHERE id LIKE '39';
@@ -31,7 +34,7 @@ SELECT SUM(quantity) FROM orders;
 
 How much was spent on books?
 
-SELECT SUM(price * quantity) FROM items INNER JOIN orders ON items.id = orders.item_id WHERE category = "BOOKS";
+SELECT SUM(price * quantity) FROM items INNER JOIN orders ON items.id = orders.item_id WHERE category = "books";
 Simulate buying an item by inserting a User for yourself and an Order for that User. -->
 
 <!-- sqlite> INSERT INTO users VALUES (51, "Max", "Anam", "maxanana@lite.nik");
@@ -44,7 +47,7 @@ SELECT * FROM items WHERE id = 23; -->
 
 SELECT title, SUM(quantity) FROM items JOIN orders ON orders.item_id = items.id GROUP BY items.id ORDER BY SUM(quantity) DESC LIMIT 5;
 
-SELECT title, SUME(price * quantity) FROM items HOIN orders ON orders.item_id = items.id GROUP BY items.id ORDER BY SUM(price * quantity) DESC LIMIT 5;
+SELECT title, SUM(price * quantity) FROM items HOIN orders ON orders.item_id = items.id GROUP BY items.id ORDER BY SUM(price * quantity) DESC LIMIT 5;
 
 SELECT first_name, last_name, SUM(price * quantity) FROM users JOIN orders ON ORDERS.USER_ID = USERS.ID join ITEMS ON orders.item_id = items.id GOUP BY users.id ORDER BY SUM(price * quantity) DESC LIMIT 5;
 
