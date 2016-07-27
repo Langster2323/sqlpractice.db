@@ -14,6 +14,8 @@ Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
  AND
  state = WY;
 
+ SELECT * FROM addresses WHERE street = '6439 Zetta Hills';
+
 Correct Virginie Mitchell's address to "New York, NY, 10108".
 SELECT id FROM addresses WHERE first_name = 'Virginie'
 39
