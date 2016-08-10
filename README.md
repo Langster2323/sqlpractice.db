@@ -9,10 +9,9 @@ What's the cheapest book? (Does that change for "category is exactly 'book'"
 SELECT title, category, price FROM ITEMS ORDER BY price LIMIT 1;
 
 Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
- SELECT first_name FROM addresses
- WHERE city = Willmouth
- AND
- state = WY;
+ SELECT first_name, last_name FROM users JOIN addresses ON users.id = addresses.user_id WHERE street = "6439 Zetta Hills";
+
+ SELECT * FROM addresses WHERE user_id = (SELECT user_id FROM addresses WHERE street = "6439 Zetta Hills" AND state = "WY");
 
  SELECT * FROM addresses WHERE street = '6439 Zetta Hills';
 
