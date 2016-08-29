@@ -6,7 +6,7 @@ SELECT price FROM items ORDER BY price DESC LIMIT 5;
 
 What's the cheapest book? (Does that change for "category is exactly 'book'"
  versus "category contains 'book'"?)
-SELECT * FROM items WHERE category LIKE '%Book%'ORDER BY price ASC LIMIT 1;
+SELECT * FROM items WHERE category LIKE '%book%'ORDER BY price ASC LIMIT 1;
 
 Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
  SELECT first_name, last_name FROM users JOIN addresses ON users.id = addresses.user_id WHERE street = "6439 Zetta Hills";
